@@ -184,6 +184,9 @@ public:
     bool getToolsDockChecked() const;
     void setToolsDockChecked(bool p_checked);
 
+    bool getSearchDockChecked() const;
+    void setSearchDockChecked(bool p_checked);
+
     const QByteArray &getMainWindowGeometry() const;
     void setMainWindowGeometry(const QByteArray &p_geometry);
 
@@ -604,8 +607,6 @@ private:
     QString curBackgroundColor;
 
     QString curRenderBackgroundColor;
-
-    bool m_toolsDockChecked;
 
     QByteArray m_mainWindowGeometry;
     QByteArray m_mainWindowState;
@@ -1153,14 +1154,26 @@ inline void VConfigManager::setCurRenderBackgroundColor(const QString &colorName
 
 inline bool VConfigManager::getToolsDockChecked() const
 {
-    return m_toolsDockChecked;
+    return getConfigFromSettings("global", "tools_dock_checked").toBool();
 }
 
 inline void VConfigManager::setToolsDockChecked(bool p_checked)
 {
-    m_toolsDockChecked = p_checked;
-    setConfigToSettings("global", "tools_dock_checked",
-                        m_toolsDockChecked);
+    setConfigToSettings("global",
+                        "tools_dock_checked",
+                        p_checked);
+}
+
+inline bool VConfigManager::getSearchDockChecked() const
+{
+    return getConfigFromSettings("global", "search_dock_checked").toBool();
+}
+
+inline void VConfigManager::setSearchDockChecked(bool p_checked)
+{
+    setConfigToSettings("global",
+                        "search_dock_checked",
+                        p_checked);
 }
 
 inline const QByteArray& VConfigManager::getMainWindowGeometry() const

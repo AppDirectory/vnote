@@ -39,6 +39,7 @@ class VButtonWithWidget;
 class VAttachmentList;
 class VSnippetList;
 class VCart;
+class VSearcher;
 class QPrinter;
 
 enum class PanelViewState
@@ -205,6 +206,10 @@ private:
 
     void initDockWindows();
 
+    void initToolsDock();
+
+    void initSearchDock();
+
     void initRenderBackgroundMenu(QMenu *menu);
 
     void initRenderStyleMenu(QMenu *p_menu);
@@ -280,6 +285,8 @@ private:
 
     static bool toggleToolsDockByCaptain(void *p_target, void *p_data);
 
+    static bool toggleSearchDockByCaptain(void *p_target, void *p_data);
+
     static bool closeFileByCaptain(void *p_target, void *p_data);
 
     static bool shortcutsHelpByCaptain(void *p_target, void *p_data);
@@ -311,7 +318,9 @@ private:
 
     VEditArea *editArea;
 
-    QDockWidget *toolDock;
+    QDockWidget *m_toolDock;
+
+    QDockWidget *m_searchDock;
 
     // Tool box in the dock widget.
     VToolBox *m_toolBox;
@@ -323,6 +332,9 @@ private:
 
     // View and manage cart.
     VCart *m_cart;
+
+    // Advanced search.
+    VSearcher *m_searcher;
 
     VFindReplaceDialog *m_findReplaceDialog;
 

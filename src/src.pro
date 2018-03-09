@@ -113,7 +113,10 @@ SOURCES += main.cpp\
     vstyleditemdelegate.cpp \
     vtreewidget.cpp \
     dialog/vexportdialog.cpp \
-    vexporter.cpp
+    vexporter.cpp \
+    vsearcher.cpp \
+    vsearch.cpp \
+    vsearchresulttree.cpp
 
 HEADERS  += vmainwindow.h \
     vdirectorytree.h \
@@ -214,7 +217,10 @@ HEADERS  += vmainwindow.h \
     vtreewidget.h \
     dialog/vexportdialog.h \
     vexporter.h \
-    vwordcountinfo.h
+    vwordcountinfo.h \
+    vsearcher.h \
+    vsearch.h \
+    vsearchresulttree.h
 
 RESOURCES += \
     vnote.qrc \
